@@ -32,17 +32,6 @@ class MyPanel extends JPanel{
     Rock rock; //just for test purposes for now, remove later
 
 
-    public MyPanel(){
-        //after set intervals
-        timer = new Timer(100, e-> {
-            
-            rock.move();
-            repaint();
-        });
-        timer.start();
-
-    }
-
     public void updateDimensions(){ // gets the dimensions of the frame
         
         width = getWidth();
@@ -56,8 +45,23 @@ class MyPanel extends JPanel{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
 
+ 
         g.drawImage(rock.image, rock.x, rock.y, this);
+      
+
 
     }
+
+    public MyPanel(){
+        //after set intervals
+        timer = new Timer(100, e-> {
+            
+            rock.move();
+            repaint();
+        });
+        timer.start();
+
+    }
+
 
 }

@@ -4,15 +4,15 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 
-public class Scissors {
+public class Base {
     Image image;
     Rectangle hitbox;
     int x, y;
     int dx, dy;
     Random rand;
     
-    public Scissors(int x, int y){ // allow the coordinates it spawns in to be passed into it
-        ImageIcon icon = new ImageIcon("C:\\Users\\lorran\\Documents\\RPS_eletric_boogalo\\assets\\scissor.png");
+    public Base(int x, int y, String imagePath){ // allow the coordinates it spawns in to be passed into it
+        ImageIcon icon = new ImageIcon(imagePath);
         image = icon.getImage();
         hitbox = new Rectangle(x, y, 32, 32);
         rand = new Random();
@@ -55,4 +55,5 @@ public class Scissors {
 
         //not really sure yet? probably a collide method soon
     }
+
 }
