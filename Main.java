@@ -17,7 +17,7 @@ public class Main{
         frame.add(panel);
 
         frame.setVisible(true);
-        panel.updateDimensions();
+        panel.gameInitialize();
     }
 }
 
@@ -28,17 +28,37 @@ class MyPanel extends JPanel{
     Timer timer;
     Random rand = new Random();
     boolean gameEnd = false; //probs need something like this
+    Base[] contenders = new Base[30]; // Array where all objects will be stored
+    
 
-    Rock rock; //just for test purposes for now, remove later
 
-
-    public void updateDimensions(){ // gets the dimensions of the frame
+    public void gameInitialize(){ // gets the dimensions of the frame
         
         width = getWidth();
         height = getHeight();
-        int rndX = rand.nextInt(width);
-        int rndY = rand.nextInt(height);
-        rock = new Rock(rndX, rndY);
+        int store = 30;
+        int i = 0;
+        while (i < store){      // instantiate and store 10 of each object in the array
+            int rndX = rand.nextInt(width);
+            int rndY = rand.nextInt(height);
+
+            if (i < 10){
+                Rock rock = new Rock(rndX, rndY);
+                contenders[i] = rock;
+                i ++;
+            }
+            else if(i >= 10 && i < 20){
+                Scissor scissor = new Scissor(rndX, rndY);
+                contenders[i] = scissor;
+                i++;
+            }
+            else if(i >= 20 && i < 30){
+                Paper paper = new Paper(rndX, rndY);
+                contenders[i] = paper;
+                i++;
+            }
+        }
+        
     }
 
     @Override
@@ -46,7 +66,7 @@ class MyPanel extends JPanel{
         super.paintComponent(g);
 
  
-        g.drawImage(rock.image, rock.x, rock.y, this);
+        //g.drawImage(rock.image, rock.x, rock.y, this);
       
 
 
@@ -56,7 +76,7 @@ class MyPanel extends JPanel{
         //after set intervals
         timer = new Timer(100, e-> {
             
-            rock.move();
+            //rock.move();
             repaint();
         });
         timer.start();
@@ -65,3 +85,4 @@ class MyPanel extends JPanel{
 
 
 }
+//TODO spawn 30 objects, 10 of each and allow them to move around freely
