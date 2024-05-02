@@ -65,18 +65,23 @@ class MyPanel extends JPanel{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
 
+        for (Base i: contenders){
+            g.drawImage(i.image, i.x, i.y, this);
+        }
  
         //g.drawImage(rock.image, rock.x, rock.y, this);
-      
-
 
     }
 
     public MyPanel(){
         //after set intervals
         timer = new Timer(100, e-> {
+
+            for (Base i : contenders ){
+                i.move();
+            }
             
-            //rock.move();
+            
             repaint();
         });
         timer.start();
