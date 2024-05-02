@@ -18,6 +18,8 @@ public class Rock {
         rand = new Random();
         this.x = x;
         this.y = y;
+        dx = rand.nextInt(10) - 5;
+        dy = rand.nextInt(10) - 5;
 
     }
 

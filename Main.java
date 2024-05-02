@@ -23,6 +23,7 @@ public class Main{
 
 //inside here that the game should occur, paint components will draw, so this will be added in the frame
 class MyPanel extends JPanel{
+
     int width; 
     int height;
     Timer timer;
@@ -38,6 +39,7 @@ class MyPanel extends JPanel{
             rock.move();
             repaint();
         });
+        timer.start();
 
     }
 
