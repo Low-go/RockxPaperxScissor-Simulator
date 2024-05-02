@@ -36,6 +36,23 @@ public class Rock {
             dy = rand.nextInt(10) - 5;
         }
 
+        if (hitbox.x + hitbox.width > MyPanel.width){
+            hitbox.x = MyPanel.width - hitbox.width;
+            dx =- dx;
+        }
+        if (hitbox.x  < 0){ //hahahahahah it workkssss im going insane
+            hitbox.x = 0;
+            dx =- dx;
+        }
+        if(hitbox.y + hitbox.height > MyPanel.height){ //height
+            hitbox.y = MyPanel.height - hitbox.height;
+            dy =- dy;
+        }
+        if(hitbox.y < 0){
+            hitbox.y = 0;
+            dy =- dy;
+        }
+
         //not really sure yet? probably a collide method soon
     }
 }

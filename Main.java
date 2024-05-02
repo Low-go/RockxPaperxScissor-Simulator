@@ -24,13 +24,13 @@ public class Main{
 //inside here that the game should occur, paint components will draw, so this will be added in the frame
 class MyPanel extends JPanel{
 
-    int width; 
-    int height;
+    static int width, height;
     Timer timer;
     Random rand = new Random();
     boolean gameEnd = false; //probs need something like this
 
     Rock rock; //just for test purposes for now, remove later
+
 
     public MyPanel(){
         //after set intervals
