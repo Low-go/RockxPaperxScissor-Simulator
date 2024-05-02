@@ -15,6 +15,9 @@ public class Main{
 
         MyPanel panel = new MyPanel(); 
         frame.add(panel);
+
+        frame.setVisible(true);
+        panel.updateDimensions();
     }
 }
 
@@ -23,20 +26,35 @@ class MyPanel extends JPanel{
     int width; 
     int height;
     Timer timer;
+    Random rand = new Random();
+    boolean gameEnd = false; //probs need something like this
 
     Rock rock; //just for test purposes for now, remove later
 
     public MyPanel(){
         //after set intervals
         timer = new Timer(100, e-> {
+            
+            rock.move();
             repaint();
         });
 
     }
 
+    public void updateDimensions(){ // gets the dimensions of the frame
+        
+        width = getWidth();
+        height = getHeight();
+        int rndX = rand.nextInt(width);
+        int rndY = rand.nextInt(height);
+        rock = new Rock(rndX, rndY);
+    }
+
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
+
+        g.drawImage(rock.image, rock.x, rock.y, this);
 
     }
 

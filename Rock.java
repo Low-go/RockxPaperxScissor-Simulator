@@ -25,6 +25,15 @@ public class Rock {
         x += dx;
         y += dy;
 
-        //not really sure yet?
+        hitbox.x = x;
+        hitbox.y = y;
+
+        //allow some randomized movment
+        if (rand.nextInt(100) < 10){ //10 percent chance of random mov
+            dx = rand.nextInt(10) -5;
+            dy = rand.nextInt(10) - 5;
+        }
+
+        //not really sure yet? probably a collide method soon
     }
 }
