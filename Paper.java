@@ -12,7 +12,7 @@ public class Paper {
     Random rand;
     
     public Paper(int x, int y){ // allow the coordinates it spawns in to be passed into it
-        ImageIcon icon = new ImageIcon("C:\\Users\\lorran\\Documents\\RPS_eletric_boogalo\\assets\\rock.png");
+        ImageIcon icon = new ImageIcon("C:\\Users\\lorran\\Documents\\RPS_eletric_boogalo\\assets\\paper.png");
         image = icon.getImage();
         hitbox = new Rectangle(x, y, 32, 32);
         rand = new Random();
