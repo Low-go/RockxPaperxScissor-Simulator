@@ -27,7 +27,7 @@ class MyPanel extends JPanel{
     static int width, height;
     Timer timer;
     Random rand = new Random();
-    boolean gameEnd = false; //probs need something like this
+    //boolean gameEnd = false; //probs need something like this
     Base[] contenders = new Base[30]; // Array where all objects will be stored
     
 
@@ -83,8 +83,29 @@ class MyPanel extends JPanel{
                 i.collide(contenders);
                 
             }
-            
-            
+
+            boolean allRock = true;
+            boolean allPaper = true;
+            boolean allScissor = true;
+
+            for (Base i : contenders){
+                if (!(i instanceof Rock)){
+                    allRock = false;
+                }
+                if (!(i instanceof Paper)){
+                    allPaper = false;
+                }
+                if (!(i instanceof Scissor)){
+                    allScissor = false;
+                }
+            }
+
+            if ( allRock || allPaper || allScissor){
+                timer.stop();
+                System.out.println("Game Over");
+            }
+
+             
             repaint();
         });
         timer.start();
