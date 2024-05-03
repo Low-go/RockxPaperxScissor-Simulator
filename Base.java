@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 
-public class Base {
+public abstract class Base {
     Image image;
     Rectangle hitbox;
     int x, y;
@@ -54,7 +54,19 @@ public class Base {
             dy =- dy;
         }
 
-        //not really sure yet? probably a collide method soon
+        
+
+        
     }
+
+    public void collide(Base[] contenders){
+        for (int i = 0; i < contenders.length; i++){ //loop
+            if (this != contenders[i] && this.hitbox.intersects(contenders[i].hitbox)){ // if its not itself and one intersects the other
+                handleCollision(contenders, i);
+            }
+        }
+    }
+
+    public abstract void handleCollision(Base[] contenders, int i); //allow this to be defined by my child class
 
 }

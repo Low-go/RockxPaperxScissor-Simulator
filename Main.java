@@ -39,8 +39,9 @@ class MyPanel extends JPanel{
         int store = 30;
         int i = 0;
         while (i < store){      // instantiate and store 10 of each object in the array
-            int rndX = rand.nextInt(width);
-            int rndY = rand.nextInt(height);
+            int buffer = 35;
+            int rndX = buffer + rand.nextInt(width - 2 * buffer);
+            int rndY = buffer + rand.nextInt(height - 2 * buffer);
 
             if (i < 10){
                 Rock rock = new Rock(rndX, rndY);
@@ -79,6 +80,8 @@ class MyPanel extends JPanel{
 
             for (Base i : contenders ){
                 i.move();
+                i.collide(contenders);
+                
             }
             
             
@@ -88,6 +91,4 @@ class MyPanel extends JPanel{
 
     }
 
-
 }
-//TODO spawn 30 objects, 10 of each and allow them to move around freely

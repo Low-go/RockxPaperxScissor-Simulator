@@ -8,5 +8,13 @@ public class Rock extends Base{
 
     }
 
+    public void handleCollision(Base[] contenders, int i){
+        if (contenders[i] instanceof Scissor){ //if what you bumped in is a scissor object
+            contenders[i] = new Rock(contenders[i].x, contenders[i].y);
+        }
+    }
+
  
 }
+
+
